@@ -66,7 +66,10 @@
       const appDomain = official ? QV.host(official) : "Tautan resmi belum diatur";
       return `<tr><td><div class="admin-app-cell">${logoMarkup(app)}<div><div class="admin-app-name">${QV.escapeHTML(app.name)}</div><div class="admin-app-domain">${QV.escapeHTML(appDomain)}</div></div></div></td><td class="table-category">${QV.escapeHTML(app.category)}</td><td><span class="table-platform ${platform.toLowerCase()}">${platform}</span></td><td>${appLink}</td><td><div class="table-actions"><button class="table-action" type="button" data-edit="${QV.escapeHTML(app.id)}">Edit</button><button class="table-action delete" type="button" data-delete="${QV.escapeHTML(app.id)}">Hapus</button></div></td></tr>`;
     }).join("");
-    document.getElementById("category-options").innerHTML = QV.categories(apps).map((category) => `<option value="${QV.escapeHTML(category.name)}">`).join("");
+    const categoryField = form.elements.category;
+    const selectedCategory = categoryField.value;
+    categoryField.innerHTML = '<option value="">Pilih kategori</option>' + QV.CATEGORY_META.map((category) => `<option value="${QV.escapeHTML(category.name)}">${QV.escapeHTML(category.name)}</option>`).join("");
+    if (QV.CATEGORY_META.some((category) => category.name === selectedCategory)) categoryField.value = selectedCategory;
     table.querySelectorAll("[data-edit]").forEach((button) => button.addEventListener("click", () => openEdit(button.dataset.edit)));
     table.querySelectorAll("[data-delete]").forEach((button) => button.addEventListener("click", () => removeApp(button.dataset.delete)));
     table.querySelectorAll(".admin-mini-logo img").forEach((img) => img.addEventListener("error", () => { img.parentElement.textContent = img.parentElement.dataset.fallback || "?"; }, { once: true }));
@@ -79,7 +82,7 @@
     resetForm();
     form.elements.id.value = app.id;
     form.elements.name.value = app.name;
-    form.elements.category.value = app.category;
+    form.elements.category.value = QV.CATEGORY_META.some((category) => category.name === app.category) ? app.category : "IT";
     form.elements.description.value = app.description;
     form.elements.platform.value = app.platform;
     form.elements.accent.value = /^#[0-9a-f]{6}$/i.test(app.accent) ? app.accent : "#10d7eb";
@@ -111,7 +114,7 @@
     const appUrl = QV.safeURL(values.appUrl);
     const officialUrl = QV.safeURL(values.officialUrl);
     const logoUrl = values.logoUrl.trim() ? QV.safeURL(values.logoUrl) : faviconFor(officialUrl);
-    if (!values.name.trim() || !values.category.trim() || !values.description.trim()) { error.textContent = "Lengkapi nama, kategori, dan deskripsi aplikasi."; error.hidden = false; return; }
+    if (!values.name.trim() || !QV.CATEGORY_META.some((category) => category.name === values.category) || !values.description.trim()) { error.textContent = "Lengkapi nama, pilih kategori yang tersedia, dan isi deskripsi aplikasi."; error.hidden = false; return; }
     if ((values.appUrl.trim() && !appUrl) || (values.officialUrl.trim() && !officialUrl)) { error.textContent = "Tautan yang diisi harus menggunakan alamat HTTP atau HTTPS yang valid."; error.hidden = false; return; }
     if (values.logoUrl.trim() && !logoUrl) { error.textContent = "URL logo harus memakai HTTP atau HTTPS."; error.hidden = false; return; }
     const apps = QV.getApps();
