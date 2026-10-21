@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#070a12">
+  <title>Masuk · Quantalyxtra Verse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="auth-page">
+  <header class="topbar auth-topbar"><a class="brand-lockup" href="index.html"><img src="assets/images/quantalyxtra-wordmark.png" alt="Quantalyxtra Verse"></a><a class="text-link" href="index.html">← Kembali ke beranda</a></header>
+  <main class="auth-layout">
+    <section class="auth-aside panel-grid"><div class="hero-kicker"><span class="rocket">↗</span> INFINITE NEURAL GATEWAY</div><h1>Satu gerbang.<br><span>Semua ruang kerja.</span></h1><p>Simpan akses ke aplikasi kerja favoritmu dalam satu semesta yang tertata.</p><div class="auth-orbit" aria-hidden="true"><img src="assets/images/qv-orb.png" alt=""></div><div class="hero-stats"><span class="pill">Akses lebih tertata</span><span class="pill">Ruang digital pribadi</span></div></section>
+    <section class="auth-card surface-card" aria-labelledby="auth-title">
+      <div class="auth-tabs" role="tablist" aria-label="Jenis akun"><button class="auth-tab is-active" type="button" role="tab" aria-selected="true" data-auth-mode="signin">Masuk</button><button class="auth-tab" type="button" role="tab" aria-selected="false" data-auth-mode="signup">Buat akun</button></div>
+      <div id="auth-error" class="form-message error-message" role="alert" hidden></div><div id="auth-success" class="form-message success-message" role="status" hidden></div>
+      <form id="signin-form" class="auth-form"><div><div class="section-eyebrow">SELAMAT DATANG KEMBALI</div><h2 id="auth-title">Masuk ke Verse</h2><p class="form-intro">Gunakan email dan kata sandi akunmu.</p></div><label class="field-label">Email<input name="email" type="email" autocomplete="email" placeholder="nama@email.com" required></label><label class="field-label">Kata sandi<input name="password" type="password" autocomplete="current-password" placeholder="Masukkan kata sandi" required></label><button class="button button-primary button-wide" type="submit">Masuk <span>→</span></button><p class="form-switch">Belum punya akun? <button type="button" class="inline-button" data-auth-mode="signup">Daftar sekarang</button></p></form>
+      <form id="signup-form" class="auth-form" hidden><div><div class="section-eyebrow">MULAI DARI SINI</div><h2>Buat akun Verse</h2><p class="form-intro">Akun baru otomatis memakai akses pengguna.</p></div><label class="field-label">Nama<input name="name" type="text" autocomplete="name" placeholder="Nama kamu" minlength="2" required></label><label class="field-label">Email<input name="email" type="email" autocomplete="email" placeholder="nama@email.com" required></label><label class="field-label">Kata sandi<input name="password" type="password" autocomplete="new-password" placeholder="Minimal 8 karakter" minlength="8" required></label><button class="button button-primary button-wide" type="submit">Buat akun <span>→</span></button><p class="form-switch">Sudah punya akun? <button type="button" class="inline-button" data-auth-mode="signin">Masuk</button></p></form>
+      <p class="local-note">Akun demo tersimpan di browser ini.</p><p class="owner-credit"><span>Pemilik website: <strong data-owner-name>Pearlyanca Princess Blessinca</strong></span><span class="owner-social-links" role="group" aria-label="Akun media sosial pemilik"><a class="owner-social-link" href="https://www.linkedin.com/in/pearlyanca-pincess-blessinca-a052a343a?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer"><img src="assets/images/linkedin.svg" alt="" aria-hidden="true"><span>LinkedIn</span></a><a class="owner-social-link" href="https://www.instagram.com/crystall_diamond_shine88888?srtk=MTRkaXFhdzIyOXh6MQ==" target="_blank" rel="noopener noreferrer"><img src="assets/images/instagram.svg" alt="" aria-hidden="true"><span>Instagram</span></a></span></p>
+    </section>
+  </main>
+  <script src="assets/js/data.js"></script><script src="assets/js/auth-ui.js"></script>
+</html>
