@@ -9,6 +9,7 @@ Quantalyxtra Verse membantu menata akses digital dalam satu ruang. Beranda beris
 - `catalog.html` — halaman katalog yang berisi kategori. Pilih kartu kategori untuk membuka daftar aplikasinya.
 - `category.html` — halaman aplikasi dalam kategori yang dipilih.
 - `admin.html` — panel khusus untuk mengelola isi katalog.
+- `README.md` - halaman panduan website.
 
 ## Logo dan tautan
 
